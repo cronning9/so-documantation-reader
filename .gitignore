@@ -9,3 +9,10 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+.idea
+so-docs-reader.iml
+
+# ignores the json files we're working with.
+# if you'd like to use them, please download
+# or torrent from https://archive.org/details/documentation-dump.7z
+/resources/docs
