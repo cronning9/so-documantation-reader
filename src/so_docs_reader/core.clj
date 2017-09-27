@@ -19,9 +19,17 @@
   [symbol filename]
   `(def ~symbol (convert-json-file ~filename)))
 
+(defmacro create-data-forms
+  [data-list]
+  `(let [m-symbol (first data-list)
+         m-filename (second data-list)
+         more-items (rest (rest data-list))]
+     (def ~m-symbol (convert-json-file ~m-filename))
+     (if (> (count ~more-items) 0)
+       (recur ~more-items))))
+
 (create-data-form cont-del-reasons "contributordeletionreasons.json")
 (create-data-form doctags "doctags.json")
-
 
 (defn -main
   "I don't do a whole lot ... yet."
